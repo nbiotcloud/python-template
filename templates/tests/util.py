@@ -21,19 +21,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-"""
-{description}.
-"""
+"""Test Utilities."""
+import contextlib
+import os
 
 
-def examplefunc(first, second=1):
-    """
-    Example Function.
-
-    Args:
-        first: The important argument.
-
-    Keyword Args:
-        second: The optional argument.
-    """
-    return first + second
+@contextlib.contextmanager
+def chdir(path):
+    """Change Working Directory to ``path``."""
+    curdir = os.getcwd()
+    try:
+        os.chdir(path)
+        yield
+    finally:
+        os.chdir(curdir)

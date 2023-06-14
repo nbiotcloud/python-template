@@ -21,19 +21,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-"""
-{description}.
-"""
+"""Testing Fixtures."""
+
+from pytest import fixture
 
 
-def examplefunc(first, second=1):
-    """
-    Example Function.
+@fixture()
+def myfixture(tmp_path):
+    """Example Fixture."""
 
-    Args:
-        first: The important argument.
+    mytmp_path = tmp_path / "mysub"
+    mytmp_path.mkdir(parents=True)
+    (mytmp_path / "myfile.txt").write_text("filecontent")
 
-    Keyword Args:
-        second: The optional argument.
-    """
-    return first + second
+    yield mytmp_path

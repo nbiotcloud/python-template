@@ -14,7 +14,9 @@ def create(name: str, description: str, path: pathlib.Path, user: str = None, ye
         raise ValueError(f"Invalid name: {name}")
     meta = {
         "name": name,
+        "name_underline": "=" * len(name),
         "description": description,
+        "description_underline": "=" * len(description),
         "user": user or "nbiotcloud",
         "year": year or datetime.datetime.now().year,
     }
@@ -27,6 +29,7 @@ def _create(tplpath, dstpath, meta):
         relpath = abstplpath.relative_to(tplpath)
         absdstpath = pathlib.Path(str(dstpath / relpath).format(**meta))
         if abstplpath.is_file():
+            print(f"Creating {absdstpath!s}")
             # Render single file
             absdstpath.parent.mkdir(parents=True, exist_ok=True)
             tpl = abstplpath.read_text(encoding="utf-8")
