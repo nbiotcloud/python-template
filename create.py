@@ -21,7 +21,7 @@ def create(name: str, description: str, path: pathlib.Path, user: str = None, ye
         "year": year or datetime.datetime.now().year,
     }
     tplpath = pathlib.Path(__file__).parent / "templates"
-    _create(tplpath, path.resolve(), meta)
+    _create(tplpath, path, meta)
 
 
 def _create(tplpath, dstpath, meta):

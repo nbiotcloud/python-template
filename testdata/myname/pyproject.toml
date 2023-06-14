@@ -76,9 +76,6 @@ exclude_lines = [
 max-line-length = 120
 extension-pkg-whitelist = "pydantic"
 disable = [
-    'duplicate-code',
-    'redefined-outer-name',
-    'too-many-arguments',
 ]
 
 [tool.mypy]
