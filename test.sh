@@ -7,7 +7,7 @@ if [ ! -e .venv ];
 then
     python3 -m venv .venv
     source .venv/bin/activate
-    pip install tox "poetry>=1.4" "crashtest==0.4.1" isort black pylint
+    pip install tox "poetry>=1.4" isort black pylint
 else
     source .venv/bin/activate
 fi
