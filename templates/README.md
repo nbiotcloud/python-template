@@ -8,4 +8,7 @@
 
 # {description}
 
-TODO
+* [Documentation](https://{name}.readthedocs.io/en/latest/)
+* [PyPI](https://pypi.org/project/{name}/)
+* [Sources](https://github.com/{user}/{name})
+* [Issues](https://github.com/{user}/{name}/issues)

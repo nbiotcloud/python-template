@@ -8,4 +8,7 @@
 
 # My Long Description
 
-TODO
+* [Documentation](https://myname.readthedocs.io/en/latest/)
+* [PyPI](https://pypi.org/project/myname/)
+* [Sources](https://github.com/myuser/myname)
+* [Issues](https://github.com/myuser/myname/issues)
