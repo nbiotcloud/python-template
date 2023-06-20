@@ -1,12 +1,20 @@
 {description}
 {description_underline}
 
-TODO
+Links
+-----
 
-.. toctree::
-   :maxdepth: 1
+- `PyPI - Python Package Index <https://pypi.org/project/{name}/>`_
+- `Source Code <https://github.com/{user}/{name}>`_
+- `Issues <https://github.com/{user}/{name}/issues>`_
 
-   api/{name}
+API
+---
+
+.. automodule:: {name}
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 
 Indices and tables

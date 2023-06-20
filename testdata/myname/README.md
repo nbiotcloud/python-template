@@ -12,3 +12,11 @@
 * [PyPI](https://pypi.org/project/myname/)
 * [Sources](https://github.com/myuser/myname)
 * [Issues](https://github.com/myuser/myname/issues)
+
+## Installation
+
+Installing it is pretty easy:
+
+```bash
+pip install myname
+```
