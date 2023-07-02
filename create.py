@@ -6,6 +6,8 @@ import re
 from pathlib import Path
 from typing import Optional
 
+VERSION = "1.0.0"
+
 _RE_NAME = re.compile(r"^[a-z][a-z0-9]+$")
 _RE_DESCR = re.compile(r'description = "(?P<descr>.*)"')
 
@@ -14,8 +16,9 @@ def create(name: str, path: Path, description: str = None, user: str = None, yea
     """Create New Python Project From Template Directory."""
     if not _RE_NAME.match(name):
         raise ValueError(f"Invalid name: {name}")
+    pyprojectpath = path / "pyproject.toml"
     if not description:
-        description = _detect_description(path)
+        description = _detect_description(pyprojectpath)
     if not description:
         raise ValueError("Description required")
     meta = {
@@ -25,13 +28,17 @@ def create(name: str, path: Path, description: str = None, user: str = None, yea
         "description_underline": "=" * len(description),
         "user": user or "nbiotcloud",
         "year": year or datetime.datetime.now().year,
+        "templateversion": VERSION,
     }
-    tplpath = Path(__file__).parent / "templates"
-    _create(tplpath, path, meta)
+    basepath = Path(__file__).parent
+    if pyprojectpath.exists():
+        tplpaths = [basepath / "templates-update"]
+    else:
+        tplpaths = [basepath / "templates", basepath / "templates-update"]
+    _create(tplpaths, path, meta)
 
 
-def _detect_description(path: Path) -> Optional[str]:
-    pyprojectpath = path / "pyproject.toml"
+def _detect_description(pyprojectpath: Path) -> Optional[str]:
     if pyprojectpath.exists():
         with open(pyprojectpath, encoding="utf-8") as file:
             for line in file:
@@ -41,22 +48,23 @@ def _detect_description(path: Path) -> Optional[str]:
     return None
 
 
-def _create(tplpath, dstpath, meta):
-    for abstplpath in tplpath.iterdir():
-        relpath = abstplpath.relative_to(tplpath)
-        absdstpath = Path(str(dstpath / relpath).format(**meta))
-        if abstplpath.is_file():
-            print(f"Creating {absdstpath!s}")
-            # Render single file
-            absdstpath.parent.mkdir(parents=True, exist_ok=True)
-            tpl = abstplpath.read_text(encoding="utf-8")
-            out = tpl.format(**meta)
-            absdstpath.write_text(out, encoding="utf-8")
-        elif abstplpath.is_dir():
-            # Process subfolder
-            _create(abstplpath, absdstpath, meta)
-        else:
-            assert False
+def _create(tplpaths, dstpath, meta):
+    for tplpath in tplpaths:
+        for abstplpath in tplpath.iterdir():
+            relpath = abstplpath.relative_to(tplpath)
+            absdstpath = Path(str(dstpath / relpath).format(**meta))
+            if abstplpath.is_file():
+                print(f"Creating {absdstpath!s}")
+                # Render single file
+                absdstpath.parent.mkdir(parents=True, exist_ok=True)
+                tpl = abstplpath.read_text(encoding="utf-8")
+                out = tpl.format(**meta)
+                absdstpath.write_text(out, encoding="utf-8")
+            elif abstplpath.is_dir():
+                # Process subfolder
+                _create([abstplpath], absdstpath, meta)
+            else:
+                assert False
 
 
 def main():

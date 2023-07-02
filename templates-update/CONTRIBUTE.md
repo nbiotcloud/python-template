@@ -1,5 +1,7 @@
 # Contribute
 
+This project uses https://github.com/nbiotcloud/python-template {{templateversion}}
+
 ## Testing
 
 ### Create Environment
