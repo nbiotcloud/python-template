@@ -16,7 +16,7 @@ isort -l 120 create.py
 black -l 120 create.py
 pylint --max-line-length 120 create.py
 rm -rf testdata
-python3 create.py myname "My Long Description" -y 1234 -u myuser -C testdata/myname
+python3 create.py myname "My Long Description" -C testdata/myname
 (cd testdata/myname && black . --check)
 (cd testdata/myname && isort . --check)
 (cd testdata/myname && tox)

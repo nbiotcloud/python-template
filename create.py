@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 from typing import Optional
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 
 _RE_NAME = re.compile(r"^[a-z][a-z0-9]+$")
 _RE_DESCR = re.compile(r'description = "(?P<descr>.*)"')

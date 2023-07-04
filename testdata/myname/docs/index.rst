@@ -5,8 +5,8 @@ Links
 -----
 
 - `PyPI - Python Package Index <https://pypi.org/project/myname/>`_
-- `Source Code <https://github.com/myuser/myname>`_
-- `Issues <https://github.com/myuser/myname/issues>`_
+- `Source Code <https://github.com/nbiotcloud/myname>`_
+- `Issues <https://github.com/nbiotcloud/myname/issues>`_
 
 API
 ---
