@@ -12,8 +12,9 @@ _RE_NAME = re.compile(r"^[a-z][a-z0-9]+$")
 _RE_DESCR = re.compile(r'description = "(?P<descr>.*)"')
 
 
-def create(name: str, path: Path, description: str = None, user: str = None, year: str = None):
+def create(name: str, path: Path, description: str = None, user: str = None, year: str = None, force: bool = False):
     """Create New Python Project From Template Directory."""
+    # pylint: disable=too-many-arguments
     if not _RE_NAME.match(name):
         raise ValueError(f"Invalid name: {name}")
     pyprojectpath = path / "pyproject.toml"
@@ -31,10 +32,10 @@ def create(name: str, path: Path, description: str = None, user: str = None, yea
         "templateversion": VERSION,
     }
     basepath = Path(__file__).parent
-    if pyprojectpath.exists():
-        tplpaths = [basepath / "templates-update"]
-    else:
+    if not pyprojectpath.exists() or force:
         tplpaths = [basepath / "templates", basepath / "templates-update"]
+    else:
+        tplpaths = [basepath / "templates-update"]
     _create(tplpaths, path, meta)
 
 
@@ -75,8 +76,16 @@ def main():
     parser.add_argument("--path", "-C", help="Target Directory. 'name' by default")
     parser.add_argument("--user", "-u", help="User. 'nbiotcloud' by default")
     parser.add_argument("--year", "-y", help="Year. Current year by default")
+    parser.add_argument("--force", action="store_true", help="Overwrite all files.")
     args = parser.parse_args()
-    create(args.name, Path(args.path or args.name), description=args.description, user=args.user, year=args.year)
+    create(
+        args.name,
+        Path(args.path or args.name),
+        description=args.description,
+        user=args.user,
+        year=args.year,
+        force=args.force,
+    )
 
 
 if __name__ == "__main__":
