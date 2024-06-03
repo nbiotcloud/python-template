@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Python Project Creator."""
+
 import argparse
 import datetime
 import re
@@ -8,11 +9,18 @@ from typing import Optional
 
 VERSION = "1.1.0"
 
-_RE_NAME = re.compile(r"^[a-z][a-z0-9]+$")
+_RE_NAME = re.compile(r"^[a-z][a-z0-9_\-]+$")
 _RE_DESCR = re.compile(r'description = "(?P<descr>.*)"')
 
 
-def create(name: str, path: Path, description: str = None, user: str = None, year: str = None, force: bool = False):
+def create(
+    name: str,
+    path: Path,
+    description: str = None,
+    user: str = None,
+    year: str = None,
+    force: bool = False,
+):
     """Create New Python Project From Template Directory."""
     # pylint: disable=too-many-arguments
     if not _RE_NAME.match(name):
@@ -24,6 +32,8 @@ def create(name: str, path: Path, description: str = None, user: str = None, yea
         raise ValueError("Description required")
     meta = {
         "name": name,
+        "NAME": name.upper(),
+        "name_underscore": name.replace("-", "_"),
         "name_underline": "=" * len(name),
         "description": description,
         "description_underline": "=" * len(description),
@@ -71,10 +81,13 @@ def _create(tplpaths, dstpath, meta):
 def main():
     """Command Line Interface."""
     parser = argparse.ArgumentParser(prog="create", description="Create Python Project")
-    parser.add_argument("name", help="Project Name. Lowercase letters and numbers only. No dashes. No underscore")
+    parser.add_argument(
+        "name",
+        help="Project Name. Lowercase letters and numbers only. No dashes. No underscore",
+    )
     parser.add_argument("description", nargs="?")
     parser.add_argument("--path", "-C", help="Target Directory. 'name' by default")
-    parser.add_argument("--user", "-u", help="User. 'nbiotcloud' by default")
+    parser.add_argument("--user", "-u", help="User. '{user}' by default")
     parser.add_argument("--year", "-y", help="Year. Current year by default")
     parser.add_argument("--force", action="store_true", help="Overwrite all files.")
     args = parser.parse_args()

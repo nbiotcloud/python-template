@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2023 nbiotcloud
+# Copyright (c) 2024 nbiotcloud
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,6 @@ from pytest import fixture
 @fixture()
 def myfixture(tmp_path):
     """Example Fixture."""
-
     mytmp_path = tmp_path / "mysub"
     mytmp_path.mkdir(parents=True)
     (mytmp_path / "myfile.txt").write_text("filecontent")
