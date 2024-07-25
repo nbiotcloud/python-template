@@ -1,12 +1,12 @@
 [![PyPI Version](https://badge.fury.io/py/myname.svg)](https://badge.fury.io/py/myname)
 [![Python Build](https://github.com/nbiotcloud/myname/actions/workflows/main.yml/badge.svg)](https://github.com/nbiotcloud/myname/actions/workflows/main.yml)
-[![Documentation](https://readthedocs.org/projects/myname/badge/?version=latest)](https://myname.readthedocs.io/en/latest/?badge=latest)
+[![Documentation](https://readthedocs.org/projects/myname/badge/?version=stable)](https://myname.readthedocs.io/en/stable/?badge=stable)
 [![Coverage Status](https://coveralls.io/repos/github/nbiotcloud/myname/badge.svg?branch=main)](https://coveralls.io/github/nbiotcloud/myname?branch=main)
 [![python-versions](https://img.shields.io/pypi/pyversions/myname.svg)](https://pypi.python.org/pypi/myname)
 
 # My Long Description
 
-* [Documentation](https://myname.readthedocs.io/en/latest/)
+* [Documentation](https://myname.readthedocs.io/en/stable/)
 * [PyPI](https://pypi.org/project/myname/)
 * [Sources](https://github.com/nbiotcloud/myname)
 * [Issues](https://github.com/nbiotcloud/myname/issues)

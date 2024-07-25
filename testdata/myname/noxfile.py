@@ -66,7 +66,7 @@ def checkdeps(session: nox.Session) -> None:
     """Check Dependencies."""
     _init(session)
     session.run_always("pdm", "install")
-    session.run("python", "-c", "import {name_underscore}")
+    session.run("python", "-c", "import myname")
 
 
 @nox.session()

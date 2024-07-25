@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python ${ matrix.python-version }
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: ${ matrix.python-version }
+          python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: pip install --no-cache-dir nox
       - name: NOX
@@ -22,8 +22,8 @@ jobs:
       - name: Upload coverage data to coveralls.io
         run: nox -s dev -- coveralls --service=github
         env:
-          GITHUB_TOKEN: ${ secrets.GITHUB_TOKEN }
-          COVERALLS_FLAG_NAME: ${ matrix.test-name }
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_FLAG_NAME: ${{ matrix.test-name }}
           COVERALLS_PARALLEL: true
 
   coveralls:
@@ -32,16 +32,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python ${ matrix.python-version }
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: ${ matrix.python-version }
+          python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: pip install --no-cache-dir nox
       - name: Upload coverage data to coveralls.io
         run: nox -s dev -- coveralls --service=github --finish
         env:
-          GITHUB_TOKEN: ${ secrets.GITHUB_TOKEN }
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
     if: github.event_name == 'push' && github.ref_type == 'tag'
