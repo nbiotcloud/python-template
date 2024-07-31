@@ -39,7 +39,7 @@ dependencies = [
 
 [project.urls]
 "Homepage" = "https://github.com/{user}/{name}"
-"Documentation" = "https://{name}.readthedocs.io/en/latest/"
+"Documentation" = "https://{name}.readthedocs.io/en/stable/"
 "Bug Tracker" = "https://github.com/{user}/{name}/issues"
 
 [build-system]
@@ -195,7 +195,7 @@ exclude_lines = [
 [tool.mypy]
 disable_error_code = "misc"
 ignore_missing_imports = true
-plugins = "pydantic.mypy"
+# plugins = "pydantic.mypy"
 
 [[tool.mypy.overrides]]
 module = "tests.*"

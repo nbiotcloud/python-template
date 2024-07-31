@@ -23,9 +23,9 @@
 #
 """Basic Testing."""
 
-import {name}
+import {name_underscore}
 
 
 def test_examplefunc():
     """Simple Testing."""
-    assert {name}.examplefunc(3, second=2) == 5
+    assert {name_underscore}.examplefunc(3, second=2) == 5
