@@ -1,0 +1,7 @@
+{
+  "name": "example-project",
+  "snake_name": "{{ cookiecutter.name.lower().replace(' ', '_').replace('-', '_') }}",
+  "title": "Short Description",
+  "user": "nbiotcloud",
+  "year": "2025"
+}

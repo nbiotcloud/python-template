@@ -1,0 +1,13 @@
+{
+    "cookiecutter": {
+    "_checkout": null,
+    "_output_dir": "PRJPARENT",
+    "_repo_dir": "$PRJ",
+    "_template": "$PRJ",
+    "name": "example-project",
+    "snake_name": "example_project",
+    "title": "Short Description",
+    "user": "nbiotcloud",
+    "year": "2023"
+}
+}
