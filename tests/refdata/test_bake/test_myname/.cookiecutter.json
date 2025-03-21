@@ -1,0 +1,13 @@
+{
+    "cookiecutter": {
+    "_checkout": null,
+    "_output_dir": "PRJPARENT",
+    "_repo_dir": "$PRJ",
+    "_template": "$PRJ",
+    "name": "myname",
+    "snake_name": "myname",
+    "title": "Short Description",
+    "user": "myuser",
+    "year": "2024"
+}
+}

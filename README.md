@@ -1,13 +1,10 @@
 # python-template
 
-Python Project Creator.
+Our Python Project Template
 
 Usage:
 
+```bash
+pipx install cookiecutter
+cookiecutter gh:nbiotcloud/python-template
 ```
-python create.py myname "My Description"
-cd myname
-git init
-```
-
-See ``python3 create.py -h`` for any further details.

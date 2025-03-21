@@ -11,4 +11,3 @@ site/
 .hypothesis
 .test2ref
 *.egg-info
-tests/refdata/test_bake/test_default/uv.lock
