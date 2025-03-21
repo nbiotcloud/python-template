@@ -24,7 +24,7 @@
 
 [project]
 name = "{name}"
-version = "0.1.0"
+dynamic = ["version"]
 description = "{description}"
 readme = "README.md"
 authors = [
@@ -45,6 +45,10 @@ dependencies = [
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
+
+[tool.pdm.version]
+source = "scm"
+fallback_version = "0.0.0"
 
 [tool.pdm]
 [tool.pdm.dev-dependencies]
@@ -177,7 +181,7 @@ addopts ="""
     --doctest-modules
     --ignore=noxfile.py
     --ignore-glob=tests/testdata*
-    --log-level=DEBUG
+    --log-level=INFO
     --junitxml=report.xml
 """
 filterwarnings = [

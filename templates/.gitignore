@@ -10,3 +10,4 @@
 /site/
 /.hypothesis
 .test2ref
+.DS_Store
