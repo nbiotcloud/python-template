@@ -4,6 +4,7 @@
 .nox/
 .venv*
 .pdm-python
+build/
 dist/
 docs.zip
 report.xml

@@ -178,8 +178,7 @@ addopts ="""
     --cov-report html
     --doctest-glob=docs/*
     --doctest-modules
-    --ignore=noxfile.py
-    --ignore-glob=tests/testdata*
+    --ignore-glob=tests/testdata/*
     --log-level=INFO
     --junitxml=report.xml
 """
