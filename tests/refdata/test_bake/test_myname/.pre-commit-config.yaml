@@ -33,7 +33,7 @@ repos:
         args:
           - --license-filepath
           - LICENSE
-          # - --use-current-year
+          - --use-current-year
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1

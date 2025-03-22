@@ -66,11 +66,22 @@ def test_default_build(tmp_path):
     """Build Default One."""
     path = Path(__file__).parent / "refdata" / "test_bake" / "test_default"
     copytree(path, tmp_path, dirs_exist_ok=True)
+
+    # disable --use-current-year
+    precommitconfigfile = tmp_path / ".pre-commit-config.yaml"
+    precommitconfig = precommitconfigfile.read_text()
+    precommitconfigpatched = precommitconfig.replace("          - --use-current-year\n", "")
+    precommitconfigfile.write_text(precommitconfigpatched)
+
     env = dict(os.environ)
     env["VIRTUAL_ENV"] = str(tmp_path / ".venv")
+
     run(["git", "init", "."], check=True, cwd=tmp_path)
     run(["git", "add", "."], check=True, cwd=tmp_path)
     result = run(["make", "all"], cwd=tmp_path, check=False, env=env)
     run(["make", "distclean"], cwd=tmp_path, check=False)
+
+    precommitconfigfile.write_text(precommitconfig)
+
     assert_paths(path, tmp_path, excludes=(".git",))
     assert result.returncode == 0
