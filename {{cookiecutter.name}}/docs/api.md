@@ -1,0 +1,1 @@
+::: {{cookiecutter.snake_name}}
