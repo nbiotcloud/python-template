@@ -29,6 +29,12 @@ repos:
     hooks:
       - id: remove-tabs
         args: [--whitespaces-count, "2"] # defaults to: 4
+      - id: insert-license
+        files: \.py$
+        args:
+          - --license-filepath
+          - LICENSE
+          - --use-current-year
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1
