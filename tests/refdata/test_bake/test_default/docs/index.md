@@ -6,7 +6,6 @@
 
 # Short Description
 
-* [Documentation](https://example-project.readthedocs.io/en/stable/)
 * [PyPI](https://pypi.org/project/example-project/)
 * [Sources](https://github.com/nbiotcloud/example-project)
 * [Issues](https://github.com/nbiotcloud/example-project/issues)

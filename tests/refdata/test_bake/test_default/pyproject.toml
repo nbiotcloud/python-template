@@ -159,6 +159,8 @@ ignore = [
     'S101',
     # Type-Checking
     'TC001',
+    # Indent of doctest
+    'D412',
 ]
 [tool.ruff.lint.per-file-ignores]
 "test_*" = [
@@ -173,13 +175,12 @@ convention = "google"
 
 [tool.pytest.ini_options]
 addopts ="""
-    --cov example_project
+    --cov src/example_project
     --cov-report term
     --cov-report html
     --doctest-glob=docs/*
     --doctest-modules
-    --ignore=noxfile.py
-    --ignore-glob=tests/testdata*
+    --ignore-glob=tests/testdata/*
     --log-level=INFO
     --junitxml=report.xml
 """
