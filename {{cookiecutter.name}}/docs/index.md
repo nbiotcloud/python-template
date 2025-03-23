@@ -6,7 +6,6 @@
 
 # {{cookiecutter.title}}
 
-* [Documentation](https://{{cookiecutter.name}}.readthedocs.io/en/stable/)
 * [PyPI](https://pypi.org/project/{{cookiecutter.name}}/)
 * [Sources](https://github.com/{{cookiecutter.user}}/{{cookiecutter.name}})
 * [Issues](https://github.com/{{cookiecutter.user}}/{{cookiecutter.name}}/issues)

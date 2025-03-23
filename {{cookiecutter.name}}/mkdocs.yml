@@ -26,7 +26,7 @@ theme:
     - content.code.annotate
 
 nav:
-  - Get Started:
+  - Home:
       - Welcome to {{cookiecutter.name.upper()}}: index.md
       - Contributing: contributing.md
   - API:
