@@ -163,7 +163,7 @@ ignore = [
     'D412',
 ]
 [tool.ruff.lint.per-file-ignores]
-"test_*" = [
+"tests/*" = [
     # Magic Values
     "PLR2004",
     # Argument
