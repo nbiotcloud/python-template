@@ -27,7 +27,9 @@ from pathlib import Path
 from shutil import copytree
 from subprocess import run
 
-from test2ref import assert_paths, assert_refdata
+from test2ref import assert_paths, assert_refdata, configure
+
+configure(add_excludes=(".ruff_cache",))
 
 
 def test_default(cookies):
